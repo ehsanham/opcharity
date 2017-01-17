@@ -44,11 +44,25 @@ a {
     text-decoration: none;
 }
  
-img {
-    max-width: 100%;
-    height: auto;
-}
+
 #page { position:relative; z-index:5;}
+
+img {
+    vertical-align: middle;
+}
+
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #eeeeee -moz-use-text-color -moz-use-text-color;
+    border-image: none;
+    border-style: solid none none;
+    border-width: 1px 0 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
 
 .preloader_hide {opacity:0;}
 #preloader {position:fixed; left:50%; top:50%; width:32px; height:32px; margin:-16px 0 0 -16px; display:block;}
@@ -82,7 +96,17 @@ img {
    padding-left: 2%;
     padding-right: 2%;
     width: 21%;
-    float:left;    
+    float:left;
+     @include tablet {
+     width: 85%;
+         display: inline-block;
+  }
+      @include mobile {
+     width: 85%;
+         display: inline-block;
+  }
+    
+    
 }
 #header {
     height: 80px;
@@ -97,11 +121,12 @@ img {
      margin-left: 2%;
      }
     @include mobile {
-     margin-left: 4%;
-     width:100px;
-     height:50px;
-     margin:2% auto; 
-     float:none;
+    clear: both;
+    float: none;
+    height: 50px;
+    margin: 0 auto 9% 27%;
+    padding-top: 55px;
+    width: 100px;
      }    
     }
 }
@@ -112,6 +137,8 @@ img {
     float: left;
     margin-top: 15px;
     padding: 13px 0 0 22px;
+    list-style-type: none;
+    list-style: outside none none;    
     } 
     li:nth-child(3) {
     border: 1px solid #61c0bd;
@@ -129,9 +156,10 @@ img {
 
 #slider {
     float: right;
+    img{
+    max-width: 100%;
     height: auto;
-    width: 100%;
-    
+     }
     
 }
 
@@ -141,12 +169,39 @@ img {
     float: right;
     height: 120px;
     width: 100%;
+    h3{
+      @include mobile {
+       margin: 15% 15% 0;
+       }   
+    }
+    p{
+         @include mobile {
+       display:none;
+       }
+    }
+    a{
+        margin-top:14%;
+    }
     
 }
 #envolved{
     width: 100%;
     height:450px;
     float:right;
+     @include tablet {
+    height:auto;
+    
+  }
+     @include mobile {
+    height:auto;
+  }
+    .three-col{
+         @include mobile {
+        float:none;
+        width: 96%;
+       }
+    }
+    
 }
 #missions {
     background-color: #f1f2f5;
@@ -155,18 +210,34 @@ img {
     line-height: 35px;
     text-align: center;
     width: 100%;
+     @include tablet {
+    height:auto;
     
+  }
+     @include mobile {
+    height:auto;
+  }
    .three-col {
     margin-top: 7%;
     @include tablet {
     margin-top: 8%;
+   
   }
+        @include mobile {
+        float:none;
+        width: 75%;
+        margin-top:25%;
+        margin-left: 12%;
+       }
 }
 }
 #missions h3,#blog h3{
     color:#5dc0c9;
+    a{
+      color:#5dc0c9;  
+    }
 }
-#envolved h1,#missions h1,#members h1,#blog h1{
+#envolved h1,#missions h1,#members h1{
      color: #575656;
     font-size: 2em;
     margin: 25px auto;
@@ -177,10 +248,25 @@ img {
      @include mobile {
     font-size: 0.88em;
          font-weight: bold;
+         width: 30%;
   }
 
 }
-
+#blog h1{
+    color: #575656;
+    font-size: 2em;
+    margin: 20px auto;
+    width: 7%;
+     @include tablet {
+    font-size: 1.2em;
+     margin: 3px auto;    
+  }
+     @include mobile {
+    font-size: 0.88em;
+         font-weight: bold;
+         margin: 3px auto;
+  }
+}
 .button {
     @include border-radius(3px);
     float: right;
@@ -190,10 +276,13 @@ img {
     margin-top: 3%;
     padding: 15px 40px;
     text-decoration: none;
+    
     @include mobile {
     margin-top: 3%;
     padding: 2px 12px;
+    
     }
+   
     &#solid-color{
         background-color: #5fc0c3; 
         color: #fff;
@@ -202,6 +291,10 @@ img {
         background-color: #fff;
         border: 1px solid;
         color:#61c0bd;
+        @include mobile {
+    margin-right:50px;
+    
+    }
     }
 }
 
@@ -215,7 +308,12 @@ img {
     width:100%;
     height:330px;
     float:right;
-    
+    @include tablet {
+     height:auto;  
+      }
+         @include mobile {
+     height:auto;  
+      }
 }
 #footer{
     width:100%;
@@ -224,13 +322,14 @@ img {
     float:right;
     p{
     color: #979eb1;
-    margin: 109px auto 0;
+    margin: 65px auto 0 ;
     width: 50%;  
+        
     @include tablet {
      width: 75%;  
       }
          @include mobile {
-     width: 90%;  
+     width: 97%;  
       }
     }
     
@@ -241,6 +340,7 @@ img {
     padding: 17%;
     float:left;
     text-align: center;
+    
     p{
      color:#5b6172;
     margin-top:10px;   
@@ -249,14 +349,43 @@ img {
     text-align: left !important;
     }
     &.white {
-    @include border-radius(3px);    
+    @include border-radius(6px);    
     background-color: #fff;
     color: #575656;
     padding: 8% !important;
+        @include mobile{
+            margin-bottom: 30%;
+        }
     }
     
 }
-
+.in-itemb{
+   
+    float:left;
+    text-align: center;
+     
+    p{
+     color:#5b6172;
+    margin-top:10px;   
+    }
+   
+    &.tleft {
+    text-align: left !important;
+        @include mobile{
+       border-bottom: 1px solid #eee;
+    margin-bottom: 25px;
+    
+    }
+    }
+    
+    &.white {
+    @include border-radius(3px);    
+    background-color: #fff;
+    color: #575656;
+    
+    }
+    
+}
 
 #iconone{
     background: rgba(0, 0, 0, 0) url("../images/img-icons.png") repeat scroll 17px 0;
@@ -267,9 +396,10 @@ img {
      @include tablet {
     margin-left: 6px;
   }
-     @include mobile{
-        display: none;
-    }
+    @include mobile{
+    margin-left:20%;
+  }
+    
 }
 #icotwo{
      background: transparent url("../images/img-icons.png") repeat scroll -146px -1px;
@@ -280,9 +410,10 @@ img {
     @include tablet {
     margin-left: 17px;
   }
-    @include mobile{
-        display: none;
-    }
+     @include mobile{
+    margin-left:29%;
+  }
+   
 }
 #iconthr{
    background: rgba(0, 0, 0, 0) url("../images/img-icons.png") repeat scroll -271px 0;
@@ -294,8 +425,9 @@ img {
     margin-left: 20px;
   }
      @include mobile{
-        display: none;
-    }
+    margin-left:29%;
+  }
+     
 }
 #iconfor{
    background: rgba(0, 0, 0, 0) url("../images/img-icons.png") repeat scroll -618px 0;
@@ -306,8 +438,9 @@ img {
     margin-left: 36px;
   }
      @include mobile{
-        display: none;
-    }
+    margin-left:57%;
+  }
+     
 }
 #iconfiv{
    background: rgba(0, 0, 0, 0) url("../images/img-icons.png") repeat scroll -508px 0;
@@ -318,8 +451,9 @@ img {
     margin-left: 36px;
   }
      @include mobile{
-        display: none;
-    }
+    margin-left:57%;
+  }
+    
 }
 #iconsix{
    background: rgba(0, 0, 0, 0) url("../images/img-icons.png") repeat scroll -396px 0;
@@ -330,8 +464,9 @@ img {
     margin-left: 36px;
   }
      @include mobile{
-        display: none;
-    }
+    margin-left:57%;
+  }
+    
 }
 .icon.mis{
     height: 109px;
@@ -341,4 +476,35 @@ img {
 .bigger{
     color:#5b6172;
     font-size:1.2em;
+}
+
+.charity_nav  h2{
+    display:none;
+}
+section#lSlider div#slider  div.views-field.views-field-field-image-slider{
+    margin: 0 auto;
+    width: 99%;
+}
+#block-views-members-logo-block li{
+margin-left: 2%;
+    padding: 15px;
+}
+.jcarousel-skin-default .jcarousel-item{
+    background: none;
+}
+.social{
+     margin: 0 auto;
+    width: 20%;
+}
+.mean-bar .mean-nav h2{
+    display: none;
+}
+.sep hr{
+border-top: 1px solid #d9d9dd;
+    margin: 0;
+    padding: 0 7.1%;
+}
+
+.views-field.views-field-field-members-logo{
+    margin-top: 12%;
 }
