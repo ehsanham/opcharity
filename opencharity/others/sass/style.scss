@@ -1,0 +1,344 @@
+@import "compass/reset";
+@import "compass/css3";
+
+$mobile-width: 180px;
+$tablet-width: 768px;
+$desktop-width: 1200px;
+
+
+@mixin mobile {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+    
+body {
+    color: #000;
+    font-family: "roya",sans-serif ;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    direction: ltr;
+}
+
+.right {
+    float: right;
+     @include tablet {
+     margin-right: 2%;
+  }
+}
+a {
+    text-decoration: none;
+}
+ 
+img {
+    max-width: 100%;
+    height: auto;
+}
+#page { position:relative; z-index:5;}
+
+.preloader_hide {opacity:0;}
+#preloader {position:fixed; left:50%; top:50%; width:32px; height:32px; margin:-16px 0 0 -16px; display:block;}
+
+.container {
+    width: 100%;
+    margin:0 auto;
+    max-width: 1170px;
+}
+
+.tag{
+    font-weight: bold;
+    color:#5fc0c3;
+}
+.two-col{
+    width:60%;
+    float:left;
+    margin-top:3%;
+      @include tablet {
+     margin-left: 2%;
+  }
+    
+}
+.three-col{
+   padding-left: 2%;
+    padding-right: 2%;
+    width: 29%;
+    float:left;    
+}
+.for-col{
+   padding-left: 2%;
+    padding-right: 2%;
+    width: 21%;
+    float:left;    
+}
+#header {
+    height: 80px;
+    width: 100%;
+ 
+    #logo {
+    float: left;
+    height: 50px;
+    margin-top: 20px;
+    width: 14%;
+    @include tablet {
+     margin-left: 2%;
+     }
+    @include mobile {
+     margin-left: 4%;
+     width:100px;
+     height:50px;
+     margin:2% auto; 
+     float:none;
+     }    
+    }
+}
+
+
+#mainmenu ul.nav  {
+    li{
+    float: left;
+    margin-top: 15px;
+    padding: 13px 0 0 22px;
+    } 
+    li:nth-child(3) {
+    border: 1px solid #61c0bd;
+        a{
+            color:#61c0bd;}
+        
+    }
+    a {
+    color: #777777;
+    font-size: 16px;
+    padding: 0 30px 0 0;
+    text-decoration: none;
+    }
+}
+
+#slider {
+    float: right;
+    height: auto;
+    width: 100%;
+    
+    
+}
+
+
+#events{
+    background-color: #f1f2f5;
+    float: right;
+    height: 120px;
+    width: 100%;
+    
+}
+#envolved{
+    width: 100%;
+    height:450px;
+    float:right;
+}
+#missions {
+    background-color: #f1f2f5;
+    float: right;
+    height: 450px;
+    line-height: 35px;
+    text-align: center;
+    width: 100%;
+    
+   .three-col {
+    margin-top: 7%;
+    @include tablet {
+    margin-top: 8%;
+  }
+}
+}
+#missions h3,#blog h3{
+    color:#5dc0c9;
+}
+#envolved h1,#missions h1,#members h1,#blog h1{
+     color: #575656;
+    font-size: 2em;
+    margin: 25px auto;
+    width: 19%;
+     @include tablet {
+    font-size: 1.2em;
+  }
+     @include mobile {
+    font-size: 0.88em;
+         font-weight: bold;
+  }
+
+}
+
+.button {
+    @include border-radius(3px);
+    float: right;
+    font-size: 15px;
+    font-weight: 400;
+    margin-right: 15px;
+    margin-top: 3%;
+    padding: 15px 40px;
+    text-decoration: none;
+    @include mobile {
+    margin-top: 3%;
+    padding: 2px 12px;
+    }
+    &#solid-color{
+        background-color: #5fc0c3; 
+        color: #fff;
+    }
+    &#no-color{
+        background-color: #fff;
+        border: 1px solid;
+        color:#61c0bd;
+    }
+}
+
+#members {
+    width:100%;
+    height:280px;
+    float:right;
+    background-color: #f1f2f5;
+}
+#blog{
+    width:100%;
+    height:330px;
+    float:right;
+    
+}
+#footer{
+    width:100%;
+    height:150px;
+    background-color: #454850;
+    float:right;
+    p{
+    color: #979eb1;
+    margin: 109px auto 0;
+    width: 50%;  
+    @include tablet {
+     width: 75%;  
+      }
+         @include mobile {
+     width: 90%;  
+      }
+    }
+    
+}
+
+/* envolved item */
+.in-item{
+    padding: 17%;
+    float:left;
+    text-align: center;
+    p{
+     color:#5b6172;
+    margin-top:10px;   
+    }
+    &.tleft {
+    text-align: left !important;
+    }
+    &.white {
+    @include border-radius(3px);    
+    background-color: #fff;
+    color: #575656;
+    padding: 8% !important;
+    }
+    
+}
+
+
+#iconone{
+    background: rgba(0, 0, 0, 0) url("../images/img-icons.png") repeat scroll 17px 0;
+    height: 115px;
+    margin-bottom: 20px;
+    margin-left: 45px;
+    width: 160px;
+     @include tablet {
+    margin-left: 6px;
+  }
+     @include mobile{
+        display: none;
+    }
+}
+#icotwo{
+     background: transparent url("../images/img-icons.png") repeat scroll -146px -1px;
+    height: 116px;
+    margin-bottom: 20px;
+    margin-left: 43px;
+    width: 124px;
+    @include tablet {
+    margin-left: 17px;
+  }
+    @include mobile{
+        display: none;
+    }
+}
+#iconthr{
+   background: rgba(0, 0, 0, 0) url("../images/img-icons.png") repeat scroll -271px 0;
+    height: 115px;
+    margin-bottom: 20px;
+    margin-left: 75px;
+    width: 119px;
+      @include tablet {
+    margin-left: 20px;
+  }
+     @include mobile{
+        display: none;
+    }
+}
+#iconfor{
+   background: rgba(0, 0, 0, 0) url("../images/img-icons.png") repeat scroll -618px 0;
+    height: 109px;
+    margin-left: 90px;
+    width: 113px;
+       @include tablet {
+    margin-left: 36px;
+  }
+     @include mobile{
+        display: none;
+    }
+}
+#iconfiv{
+   background: rgba(0, 0, 0, 0) url("../images/img-icons.png") repeat scroll -508px 0;
+    height: 109px;
+    margin-left: 90px;
+    width: 110px;
+       @include tablet {
+    margin-left: 36px;
+  }
+     @include mobile{
+        display: none;
+    }
+}
+#iconsix{
+   background: rgba(0, 0, 0, 0) url("../images/img-icons.png") repeat scroll -396px 0;
+    height: 109px;
+    margin-left: 90px;
+    width: 113px;
+       @include tablet {
+    margin-left: 36px;
+  }
+     @include mobile{
+        display: none;
+    }
+}
+.icon.mis{
+    height: 109px;
+    margin-top: -84px;
+    width: 115px;
+}
+.bigger{
+    color:#5b6172;
+    font-size:1.2em;
+}

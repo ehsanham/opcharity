@@ -1,0 +1,26 @@
+name = Open Charity  Responsive theme
+description = an specialized responsive theme for Open Charity inc.
+package = Core
+version = VERSION
+core = 7.x
+
+
+stylesheets[all][] = assets/stylesheets/style.css
+
+
+
+regions[header] = Header
+regions[content] = 'content'
+regions[search] = search box
+regions[footer] = Footer
+
+
+regions[charity_nav] = The first navigation on header_top
+regions[slider] = The Container of the slider of the Top prdoucts or ofeers or...
+regions[events] = the event box
+regions[members] = the members part
+regions[blog] = the Blog post container
+
+
+
+scripts[] = assets/js/custom.js
